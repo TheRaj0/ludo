@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Arman's Ludo</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" href="icon.jpg" type="image/jpg">
+</head>
+<body>
+    <div id="setup-screen" class="card">
+        <h1>🎲 Ludo Game</h1>
+        <input type="text" id="playerName" placeholder="Your Name" required />
+        <input type="text" id="roomId" placeholder="Room ID" value="weekend-game" required />
+        <button id="joinBtn">Join Room</button>
+    </div>
+
+    <div id="lobby-screen" class="card" style="display: none;">
+        <h2>Lobby: <span id="displayRoomId"></span></h2>
+        <ul id="playersList"></ul>
+        <button id="startBtn" style="display:none;">Start Game</button>
+    </div>
+
+    <div id="game-screen" style="display: none;">
+        <div class="top-bar">
+            <span id="turnIndicator" class="alert">Waiting...</span>
+        </div>
+        
+        <div class="board-wrapper">
+            <div id="board-container" class="ludo-board"></div>
+        </div>
+
+        <div class="controls">
+            <div class="dice-container">
+                <button id="rollBtn" disabled>Roll Dice</button>
+                <div id="diceResult">🎲</div>
+            </div>
+            <p id="instruction" class="instruction">Wait for your turn</p>
+        </div>
+    </div>
+
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="scrypt.js"></script>
+</body>
+</html>
